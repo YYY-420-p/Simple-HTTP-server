@@ -10,3 +10,13 @@
 #define RED "\e[0;31m"
 #define WHT "\e[0;37m"
 #define GRE "\x1b[32m"
+
+
+int main() {
+
+// variables we will need 
+int socket_fd = {0};
+int client_fd = {0};
+char buffer[256] = {0} ;
+
+}
