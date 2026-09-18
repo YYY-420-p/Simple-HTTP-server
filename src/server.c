@@ -52,13 +52,20 @@ char buffer[256] = {0} ;
       socklen_t client_len ;
       client_len = sizeof(client_addr);
 
-  
 
-   
-}
+    // accepting connection 
+     if ( accept(socket_fd , (struct sockaddr*)&client_addr , &client_len) < 0){
+        printf (RED "ACCEPT ERROR:%d\n" , errno);
+        perror ("ERROR");
+        exit(EXIT_FAILURE);
+     }
+
+   // succes message after trying to connect to 127.0.0.1:8080
+    printf(GRE "Connection Accepted\n" WHT);
 
 
+   // close socket and end connection
+    close(socket_fd);
 
-
-
-}
+   return 0 ;
+  }
