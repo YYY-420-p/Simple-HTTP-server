@@ -45,8 +45,17 @@ char buffer[256] = {0} ;
 
     }
 
-   
+    printf(GRE "Server is listening on PORT 80\n" WHT);
 
+    // creating client addr structure to get client infos
+     struct sockaddr_in client_addr ;
+      socklen_t client_len ;
+      client_len = sizeof(client_addr);
+
+  
+
+   
+}
 
 
 
