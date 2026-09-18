@@ -6,14 +6,12 @@
 #include <stdlib.h>
 #include <errno.h>
 
-
 #define RED "\e[0;31m"
 #define WHT "\e[0;37m"
 #define GRE "\x1b[32m"
 
-
 int main() {
-
+ 
 // variables we will need 
 int socket_fd = {0};
 int client_fd = {0};
@@ -26,14 +24,13 @@ char buffer[256] = {0} ;
       perror("ERROR");
       exit(EXIT_FAILURE);
     }
-
+ 
     // filling socket parameters
     struct sockaddr_in server_addr ;
     server_addr.sin_family = AF_INET ;
     server_addr.sin_port   = htons(8080) ;
     server_addr.sin_addr.s_addr = INADDR_ANY ;
 
- 
    // linking socket with sockaddr structure and checking for error
      if (bind(socket_fd , (struct sockaddr*)&server_addr , sizeof(server_addr)) < 0 ){
            printf( "ERROR CODE : %d\n" , errno);
@@ -41,8 +38,14 @@ char buffer[256] = {0} ;
            exit(EXIT_FAILURE);
      }
 
+       // putting server on the listening mode
+    if (listen(socket_fd , 1 ) < 0 ) {
+       printf(RED "LISTENING ERROR\n" WHT );
+       exit(EXIT_FAILURE);
 
- 
+    }
+
+   
 
 
 
