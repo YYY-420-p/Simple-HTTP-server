@@ -34,7 +34,15 @@ char buffer[256] = {0} ;
     server_addr.sin_addr.s_addr = INADDR_ANY ;
 
  
+   // linking socket with sockaddr structure and checking for error
+     if (bind(socket_fd , (struct sockaddr*)&server_addr , sizeof(server_addr)) < 0 ){
+           printf( "ERROR CODE : %d\n" , errno);
+           perror(RED "Error" WHT);
+           exit(EXIT_FAILURE);
+     }
 
+
+ 
 
 
 
