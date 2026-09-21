@@ -6,3 +6,16 @@
 #include <netinet/in.h>
 #include <errno.h>
 
+
+int main() {
+        // variables needed   
+        int client_fd = {0} ;
+        char buffer[1024] = {0} ;
+
+        // creating a socket file descriptor 
+        client_fd = socket(AF_INET , SOCK_STREAM , 0 );
+
+        if ( client_fd < 0 ) {
+                printf("socket error : %d\n" , errno);
+                exit(EXIT_FAILURE);
+        }
