@@ -14,7 +14,7 @@ int main() {
  
 // variables we will need 
 int socket_fd = {0};
-int client_fd = {0};
+int connfd = {0};
 char buffer[256] = {0} ;
 
  // creating a socket and checking for the return value
